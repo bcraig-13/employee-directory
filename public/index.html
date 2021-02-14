@@ -4,21 +4,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="description" content="Web site created using create-react-app" />
     <title>Employee Directory</title>
   </head>
   <body>
-    <div class=header>
-      <h1>Employee Directory</h1>     
+    <div class="header">
+      <h1>Employee Directory</h1>
       <p>Search for employees by entering their name. You may also click on "Name" to sort alphabetically.</p>
     </div>
     <div>
-      <input id="empInput">
+      <input id="empInput" />
     </div>
     <div id="root"></div>
   </body>
+  <!-- ===REMOVE ONCE ENTERED INTO EMPLOYEE COMPONENT=== -->
+  <script>
+    //Script to call a random user. Multiple fetch requests needed to display different people
+    fetch("https://randomuser.me/api/")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        const image = myJson.results[0].picture.thumbnail;
+        const firstName = myJson.results[0].name.first;
+        const lastName = myJson.results[0].name.last;
+        const phone = myJson.results[0].phone;
+        const email = myJson.results[0].email;
+        console.log(image);
+        console.log(firstName);
+        console.log(lastName);
+        console.log(phone);
+        console.log(email);
+        // console.log(myJson);
+      });
+  </script>
 </html>
