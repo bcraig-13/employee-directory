@@ -1,14 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Employee from './components/Employee';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import Employee from "./components/Employee";
 // import reportWebVitals from './reportWebVitals';
+const fName = "Cloud";
+const phoneNum = "FF7";
+const eMail = "bustersword@shinra.com";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Employee />
+    <Employee name={`${fName}`} phone={`${phoneNum}`} email={`${eMail}`}/>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your Employee, pass a function

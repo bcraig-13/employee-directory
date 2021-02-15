@@ -26,13 +26,13 @@
   </body>
   <!-- ===REMOVE ONCE ENTERED INTO EMPLOYEE COMPONENT=== -->
   <script>
-    //Script to call 50 random users
+    // Script to call 50 random users
     fetch("https://randomuser.me/api/?results=50&inc=picture,name,phone,email")
       .then(function (response) {
         return response.json();
       })
       .then(function (myJson) {
-        // Need to make a for loop so i can iterate from 0-50
+        // Need to make a for loop so i can iterate from 0-50?
         const image = myJson.results[0].picture.thumbnail;
         const firstName = myJson.results[0].name.first;
         const lastName = myJson.results[0].name.last;
@@ -43,8 +43,8 @@
         console.log(lastName);
         console.log(phone);
         console.log(email);
-        // console.log(myJson);
-      });
+        console.log(myJson);
+      })
       // https://randomuser.me/api/?results=30/?inc=picture,name,phone,email
   </script>
 </html>
