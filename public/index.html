@@ -6,15 +6,20 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Employee Directory</title>
   </head>
   <body>
-    <div>
-      <h1>Employee Directory</h1>
-      <p>Search for employees by entering their name. You may also click on "Name" to sort alphabetically.</p>
-    </div>
-    <div>
-      <input id="empInput"/>
+    <section class="hero is-small is-primary">
+      <div class="hero-body">
+        <h1 class="title">
+          Employee Directory
+        </h1>
+        <p class="subtitle">Search for employees by entering their name. You may also click on "Name" to sort alphabetically.</p>
+      </div>
+    </section>
+    <div id="empInput">
+      <input/>
     </div>
     <div id="root"></div>
     
@@ -22,24 +27,24 @@
   <!-- ===REMOVE ONCE ENTERED INTO EMPLOYEE COMPONENT=== -->
   <script>
     //Script to call 50 random users
-    // fetch("https://randomuser.me/api/?results=50&inc=picture,name,phone,email")
-    //   .then(function (response) {
-    //     return response.json();
-    //   })
-    //   .then(function (myJson) {
-    //     //Need to make a for loop so i can iterate from 0-50
-    //     // const image = myJson.results[i].picture.thumbnail;
-    //     // const firstName = myJson.results[i].name.first;
-    //     // const lastName = myJson.results[i].name.last;
-    //     // const phone = myJson.results[i].phone;
-    //     // const email = myJson.results[i].email;
-    //     // console.log(image);
-    //     // console.log(firstName);
-    //     // console.log(lastName);
-    //     // console.log(phone);
-    //     // console.log(email);
-    //     console.log(myJson);
-    //   });
+    fetch("https://randomuser.me/api/?results=50&inc=picture,name,phone,email")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        // Need to make a for loop so i can iterate from 0-50
+        const image = myJson.results[0].picture.thumbnail;
+        const firstName = myJson.results[0].name.first;
+        const lastName = myJson.results[0].name.last;
+        const phone = myJson.results[0].phone;
+        const email = myJson.results[0].email;
+        console.log(image);
+        console.log(firstName);
+        console.log(lastName);
+        console.log(phone);
+        console.log(email);
+        // console.log(myJson);
+      });
       // https://randomuser.me/api/?results=30/?inc=picture,name,phone,email
   </script>
 </html>

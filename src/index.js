@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Employee from './Employee';
+import Employee from './components/Employee';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
