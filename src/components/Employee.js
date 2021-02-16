@@ -6,6 +6,7 @@ class Employee extends Component {
     this.state = {
       error: null,
       isLoaded: false,
+      query: "",
       emps: [],
     };
   }
@@ -23,6 +24,10 @@ class Employee extends Component {
       });
   }
 
+  changeInput(e) {
+    this.setState({query: e.target.value})
+  }
+
   render() {
     return this.state.emps.length === 0 ? (
       <div>
@@ -30,6 +35,7 @@ class Employee extends Component {
       </div>
     ) : (
       <div>
+        <input value={this.state.query} type="text" onChange={this.changeInput.bind(this)} />
         <table>
           <thead>
             <tr>
@@ -40,7 +46,7 @@ class Employee extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.emps.map((emp, idx) => {
+            {this.state.emps.filter((emp) => emp.name.first.includes(this.state.query) || emp.name.last.includes(this.state.query)).map((emp, idx) => {
               return (
                 <tr key={idx}>
                   <td><img src={emp.picture.medium} alt={emp.name} /></td>
