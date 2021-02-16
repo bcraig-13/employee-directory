@@ -6,32 +6,54 @@ class Employee extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      emps: []
-    }
+      emps: [],
+    };
   }
 
   //Calls api once? Can get my results back but need to put them into vars
   componentDidMount() {
-    fetch("https://randomuser.me/api/?results=50&inc=picture,name,phone,email")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        console.log(result.results[0]);
+    fetch("https://randomuser.me/api/?results=10&inc=picture,name,phone,email")
+      .then((res) => res.json())
+      .then((result) => {
         this.setState({
           isLoaded: true,
-          emps: result.results
-        })
-      }
-    )
+          emps: result.results,
+        });
+        console.log(this.state.emps[0].phone);
+      });
   }
-  
+
   render() {
-    return (
+    return this.state.emps.length === 0 ? (
       <div>
-        <img src="#"></img>
-        <p>{this.props.name}</p>
-        <p>{this.props.phone}</p>
-        <p>{this.props.email}</p>
+        <p>Loading...</p>
+      </div>
+    ) : (
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.emps.map((emp, idx) => {
+              return (
+                <tr key={idx}>
+                  <td><img src={emp.picture.medium} alt={emp.name} /></td>
+                  <td>
+                    {emp.name.first} {emp.name.last}
+                  </td>
+                  <td>{emp.phone}</td>
+                  <td>{emp.email}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
