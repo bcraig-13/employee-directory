@@ -3,5 +3,7 @@ h1,
   text-align: center;
 }
 
-
-
+.nameInput {
+  font-size: 20px;
+  width: 80px;
+}

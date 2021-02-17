@@ -33,7 +33,7 @@ class Employee extends Component {
       </div>
     ) : (
       <div>
-        <input value={this.state.query} type="text" onChange={this.changeInput.bind(this)} />
+        <input value={this.state.query} type="text" onChange={this.changeInput.bind(this)} className="nameInput" />
         <table>
           <thead>
             <tr>
