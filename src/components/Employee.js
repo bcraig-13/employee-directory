@@ -11,7 +11,6 @@ class Employee extends Component {
     };
   }
 
-  //Calls api once? Can get my results back but need to put them into vars
   componentDidMount() {
     fetch("https://randomuser.me/api/?results=10&inc=picture,name,phone,email")
       .then((res) => res.json())
@@ -20,7 +19,6 @@ class Employee extends Component {
           isLoaded: true,
           emps: result.results,
         });
-        console.log(this.state.emps[0].phone);
       });
   }
 

@@ -4,11 +4,6 @@ import "./index.css";
 import Employee from "./components/Employee";
 // import reportWebVitals from './reportWebVitals';
 
-// const fName = "Cloud";
-// const phoneNum = "FF7-1997";
-// const eMail = "bustersword@shinra.com";
-// name={`${fName}`} phone={`${phoneNum}`} email={`${eMail}`}
-
 ReactDOM.render(
   <React.StrictMode>
     <Employee />
